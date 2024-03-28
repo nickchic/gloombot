@@ -11,7 +11,7 @@ export const write = async (key, value) => {
 
 export const read = async (key) => {
     const json = getJSON()
-    return json[key] ?? null
+    return json[key] || null
 }
 
 export const getJSON = () => {

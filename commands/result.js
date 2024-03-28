@@ -5,7 +5,7 @@ const result = async (message) => {
     const next_date = next ? new Date(next) : new Date()
 
     const split_message = message.content.split(' ')
-    const result = split_message[1] ?? ""
+    const result = split_message[1] || ""
 
     if(!validResult(result.toLowerCase())) {
         message.channel.send('Result not formatted correctly. "!gloomresult win" or "!gloomresult loss"')

@@ -2,7 +2,7 @@ import { write } from '../utils.js'
 
 const setRecord = async (message) => {
     const split_message = message.content.split(' ')
-    const record = split_message[1] ?? ""
+    const record = split_message[1] || ""
 
     const record_split = record.split("-")
 
