@@ -14,6 +14,8 @@ const client = new Client({ intents: [
 	GatewayIntentBits.MessageContent,
 ] });
 
+const CHANNELNAME = "gloomhaven"
+
 client.login(process.env.DISCORD_SDK_KEY)
 
 client.on('ready', () => {
@@ -22,7 +24,12 @@ client.on('ready', () => {
 
 client.on('messageCreate', async (message) => {
     const { content = '', author = {}, channel } = message
+    const { name: channel_name } = channel
     const { bot = true } = author
+
+    if(channel_name != CHANNELNAME) {
+        return
+    }
 
     if(bot) {
         return
