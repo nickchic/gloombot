@@ -1,4 +1,5 @@
 import { Client, GatewayIntentBits } from 'discord.js'
+import 'dotenv/config'
 import next from './commands/next.js'
 import last from './commands/last.js'
 import setnext from './commands/setnext.js'
