@@ -1,3 +1,12 @@
 A simple discord bot used to schedule and track Gloomhaven sessions.
 
+Requirements
+------------------
+.env File with variable DISCORD_SDK_KEY. This cooresponds to Discord Bot Token
+data.json file at the root
+
+To run
+--------------
+npm start
+
 Developed by Nicholas Chicirda
