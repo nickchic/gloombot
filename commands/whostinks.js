@@ -12,7 +12,7 @@ const whoStinks = async (message) => {
 
     const name = names[Math.floor(Math.random()*names.length)];
 
-    message.channel.send(name + " stinks. :craigStink:") 
+    message.channel.send(name + " stinks. <:craigStink:1084693881498632283>") 
 }
 
 export default whoStinks;
