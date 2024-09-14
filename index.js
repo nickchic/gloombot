@@ -68,7 +68,7 @@ client.on('messageCreate', async (message) => {
             case "!gloomsetrecord":
                 await setRecord(message)
                 return
-            case "!gloomsetwhostinks":
+            case "!gloomwhostinks":
                 await whoStinks(message)
                 return
         }
