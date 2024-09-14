@@ -7,6 +7,9 @@ import result from './commands/result.js'
 import record from './commands/record.js'
 import setRecord from './commands/setrecord.js'
 import gloom from './commands/gloom.js'
+import whoStinks from './commands/whostinks.js'
+
+import log from './utils/logs.js';
 
 const client = new Client({ intents: [
     GatewayIntentBits.Guilds,
@@ -19,7 +22,7 @@ const CHANNELNAME = "gloomhaven"
 client.login(process.env.DISCORD_SDK_KEY)
 
 client.on('ready', () => {
-    console.log('Bot ready')
+    log('Bot ready')
 })
 
 client.on('messageCreate', async (message) => {
@@ -41,27 +44,36 @@ client.on('messageCreate', async (message) => {
         return
     }
 
-    switch(split_message[0].toLowerCase()) {
-        case "!gloom":
-            await gloom(message)
-            return
-        case "!gloomnext":
-            await next(message)
-            return
-        case "!gloomlast":
-            await last(message)
-            return
-        case "!gloomsetnext":
-            await setnext(message)
-            return
-        case "!gloomresult":
-            await result(message)
-            return
-        case "!gloomrecord":
-            await record(message)
-            return
-        case "!gloomsetrecord":
-            await setRecord(message)
-            return
+
+    try {
+        switch(split_message[0].toLowerCase()) {
+            case "!gloom":
+                await gloom(message)
+                return
+            case "!gloomnext":
+                await next(message)
+                return
+            case "!gloomlast":
+                await last(message)
+                return
+            case "!gloomsetnext":
+                await setnext(message)
+                return
+            case "!gloomresult":
+                await result(message)
+                return
+            case "!gloomrecord":
+                await record(message)
+                return
+            case "!gloomsetrecord":
+                await setRecord(message)
+                return
+            case "!gloomsetwhostinks":
+                await whoStinks(message)
+                return
+        }
+    } catch(e) {
+        log(e?.message)
     }
+   
  })
